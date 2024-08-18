@@ -1,0 +1,8 @@
+#!/bin/sh -ex
+
+# Run the solver
+# todo: any other better way to run this?
+../../build/src/1_1d_linear_convection/1d_linear_convection
+
+# Animate the result
+python ../../bin/animate1d.py

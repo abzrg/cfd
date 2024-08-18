@@ -13,3 +13,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 
 add_subdirectory(utils)
+add_subdirectory(src)
