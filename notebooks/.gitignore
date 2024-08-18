@@ -1,0 +1,6 @@
+__pycache__/
+build/
+.ipynb_checkpoints/
+*.pdf
+*.mp4
+*.gif
