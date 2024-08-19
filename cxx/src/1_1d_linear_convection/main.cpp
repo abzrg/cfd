@@ -1,3 +1,4 @@
+#include "utils/io.hpp"
 #include "utils/linspace.hpp"
 
 #include <algorithm> // std::transform
@@ -13,7 +14,6 @@ void initialize(std::vector<double> &u, double u_min, double u_max,
 void linearConvection(std::vector<double> &u, double c, double dt, double dx, unsigned int nt);
 void updateBoundaryCondition(std::vector<double> &u, double c, double dt, double dx,
                              unsigned int nt);
-void writeToFile(const std::vector<double> &u, double timestep);
 
 int main()
 {
@@ -61,11 +61,11 @@ void linearConvection(std::vector<double> &u, double c, double dt, double dx, un
     // Temporal iteration
     for (size_t t = 0; t < nt; ++t)
     {
-        writeToFile(u, static_cast<double>(t));
+        utils::write1d(u, static_cast<double>(t));
         std::copy(u.begin(), u.end(), un.begin());
 
-#ifdef SIMPLE
         // Spatial iteration
+#ifdef SIMPLE
         for (size_t i = 1; i < nx; ++i)
         {
             u[i] = un[i] - c * dt / dx * (un[i] - un[i - 1]);
@@ -84,21 +84,4 @@ void linearConvection(std::vector<double> &u, double c, double dt, double dx, un
 void updateBoundaryCondition(std::vector<double> &u, double c, double dt, double dx,
                              unsigned int nt)
 {
-}
-
-void writeToFile(const std::vector<double> &u, double timestep)
-{
-    std::ofstream outfile("timestep_" + std::to_string(timestep) + ".txt");
-    if (outfile.is_open())
-    {
-        for (const auto &value : u)
-        {
-            outfile << std::fixed << std::setprecision(2) << value << "\n";
-        }
-        outfile.close();
-    }
-    else
-    {
-        std::cerr << "Error opening file for timestep " << timestep << std::endl;
-    }
 }
