@@ -11,8 +11,8 @@ import re
 
 def extract_number(filename):
     """Extract time from 'time_step_TIME.txt' file names."""
-    match = re.search(r"timestep_(\d+)\.txt", filename)
-    return int(match.group(1)) if match else 0
+    match = re.search(r"timestep_(\d+\.?\d+)\.txt", filename)
+    return float(match.group(1)) if match else 0
 
 
 def read_data(file):
