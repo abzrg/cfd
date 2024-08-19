@@ -4,3 +4,5 @@ build/
 *.a
 *.so
 timestep_*.txt
+*.gif
+*.mp4
