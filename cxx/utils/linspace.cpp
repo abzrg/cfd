@@ -6,7 +6,6 @@
 #include <vector>
 
 #ifdef SIMPLE
-
 std::vector<double> utils::linspace(double start, double end, int num)
 {
     std::vector<double> values(num);
