@@ -1,0 +1,7 @@
+#!/bin/sh -ex
+
+# Run the solver
+../../build/src/2_1d_nonlinear_convection/1d_nonlinear_convection
+
+# Animate the result
+python ../../bin/animate1d.py

@@ -1,1 +1,2 @@
 add_subdirectory(1_1d_linear_convection)
+add_subdirectory(2_1d_nonlinear_convection)
