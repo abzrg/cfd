@@ -63,14 +63,14 @@ void linearConvection(std::vector<double> &u, double c, double dt, double dx, un
         utils::write1d(u, static_cast<double>(t));
         std::copy(u.begin(), u.end(), un.begin());
 
-        // Spatial iteration
+        // Spatial iteration over internal nodes
 #ifdef SIMPLE
-        for (size_t i = 1; i < nx; ++i)
+        for (size_t i = 1; i < nx - 1; ++i)
         {
             u[i] = un[i] - c * dt / dx * (un[i] - un[i - 1]);
         }
 #else
-        std::transform(u.begin() + 1, u.end(), u.begin() + 1,
+        std::transform(u.begin() + 1, u.end() - 1, u.begin() + 1,
                        [&un, c, dt, dx, index = 1](double) mutable {
                            double result = un[index] - c * dt / dx * (un[index] - un[index - 1]);
                            ++index;

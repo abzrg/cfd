@@ -61,13 +61,13 @@ void nonlinearConvection(std::vector<double> &u, double dt, double dx, unsigned 
 
         // Spatial iteration
 #ifdef SIMPLE
-        for (size_t i = 1; i < nx; ++i)
+        for (size_t i = 1; i < nx - 1; ++i)
         {
             u[i] = un[i] - un[i] * dt / dx * (un[i] - un[i - 1]);
         }
 #else
         std::transform(
-            u.begin() + 1, u.end(), u.begin() + 1, [&un, dt, dx, index = 1](double) mutable {
+            u.begin() + 1, u.end() - 1, u.begin() + 1, [&un, dt, dx, index = 1](double) mutable {
                 double result = un[index] - un[index] * dt / dx * (un[index] - un[index - 1]);
                 ++index;
                 return result;
