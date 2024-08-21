@@ -8,7 +8,7 @@
 
 void initialize(std::vector<double> &u, double u_min, double u_max,
                 std::tuple<double, double> interval);
-void linearConvection(std::vector<double> &u, double dt, double dx, unsigned int nt);
+void nonlinearConvection(std::vector<double> &u, double dt, double dx, unsigned int nt);
 void updateBoundaryCondition(std::vector<double> &u, double dt, double dx, unsigned int nt);
 
 int main()
@@ -27,7 +27,7 @@ int main()
     std::vector<double> u(nx, 1.0);
     initialize(u, 1.0, 2.0, x_domain_interval);
 
-    linearConvection(u, dt, dx, nt);
+    nonlinearConvection(u, dt, dx, nt);
     updateBoundaryCondition(u, dt, dx, nt);
 
     return EXIT_SUCCESS;
@@ -47,7 +47,7 @@ void initialize(std::vector<double> &u, double u_min, double u_max,
     }
 }
 
-void linearConvection(std::vector<double> &u, double dt, double dx, unsigned int nt)
+void nonlinearConvection(std::vector<double> &u, double dt, double dx, unsigned int nt)
 {
     const auto nx = u.size();
 
