@@ -51,7 +51,6 @@ void linearConvection(std::vector<double> &u, double dt, double dx, unsigned int
 {
     const auto nx = u.size();
 
-    // Temporary vector to store the previous time step
     std::vector<double> un(nx);
 
     // Temporal iteration
