@@ -1,0 +1,7 @@
+#!/bin/sh -ex
+
+# Run the solver
+../../build/src/3_1d_diffusion/1d_diffusion
+
+# Animate the result
+python ../../bin/animate1d.py
