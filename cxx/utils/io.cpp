@@ -21,3 +21,22 @@ void utils::write1d(const std::vector<double> &u, double timestep)
         std::cerr << "Error opening file for timestep " << timestep << std::endl;
     }
 }
+
+
+void utils::write1d(const std::vector<double> &u, const std::string &fpath)
+{
+    std::ofstream outfile(fpath);
+
+    if (outfile.is_open())
+    {
+        for (const auto &value : u)
+        {
+            outfile << std::fixed << std::setprecision(2) << value << "\n";
+        }
+        outfile.close();
+    }
+    else
+    {
+        std::cerr << "Error opening file '" << fpath << "'." << std::endl;
+    }
+}
