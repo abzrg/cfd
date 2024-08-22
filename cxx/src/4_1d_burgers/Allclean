@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+rm -vf timestep_*.txt *.gif *.mp4 U0{,.png}

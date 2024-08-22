@@ -1,0 +1,10 @@
+#!/bin/sh -ex
+
+# Run the solver
+../../build/src/4_1d_burgers/1d_burgers
+
+# Plot the initial condition
+python ./plotU0.py ./U0
+
+# Animate the result
+python ../../bin/animate1d.py

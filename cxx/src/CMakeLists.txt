@@ -1,3 +1,4 @@
 add_subdirectory(1_1d_linear_convection)
 add_subdirectory(2_1d_nonlinear_convection)
 add_subdirectory(3_1d_diffusion)
+add_subdirectory(4_1d_burgers)
