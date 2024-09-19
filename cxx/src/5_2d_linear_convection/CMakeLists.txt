@@ -1,0 +1,2 @@
+add_executable(2d_linear_convection main.cpp)
+target_link_libraries(2d_linear_convection PRIVATE utils)
