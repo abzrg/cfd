@@ -1,0 +1,2 @@
+add_executable(2d_nonlinear_convection main.cpp)
+target_link_libraries(2d_nonlinear_convection PRIVATE utils)
